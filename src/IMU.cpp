@@ -107,3 +107,29 @@ void IMU::getAhrsData(float *pitch, float *roll, float *yaw) {
     MahonyAHRSupdateIMU(gyroX * DEG_TO_RAD, gyroY * DEG_TO_RAD,
                         gyroZ * DEG_TO_RAD, accX, accY, accZ, pitch, roll, yaw);
 }
+
+void IMU::setFIFOEnable(bool enableflag) {
+   if (imuType == IMU_MPU6886) {
+        M5.Mpu6886.setFIFOEnable(enableflag);
+    }
+}
+
+void IMU::ReadFIFOBuff(uint8_t* DataBuff, uint16_t Length) {
+   if (imuType == IMU_MPU6886) {
+		M5.Mpu6886.ReadFIFOBuff(DataBuff, Length);
+    }
+}
+
+void IMU::RestFIFO() {
+   if (imuType == IMU_MPU6886) {
+        M5.Mpu6886.RestFIFO();
+    }
+}
+
+uint16_t IMU::ReadFIFOCount() {
+	uint16_t ReData = 0;
+   if (imuType == IMU_MPU6886) {
+		ReData = M5.Mpu6886.ReadFIFOCount();
+    }
+	return ReData;
+}

@@ -170,8 +170,8 @@ extern M5Stack M5;
 #define lcd     Lcd
 #define imu     Imu
 #define IMU     Imu
-#define MPU6886 Mpu6886
-#define mpu6886 Mpu6886
+//#define MPU6886 Mpu6886
+//#define mpu6886 Mpu6886
 #define SH200Q  Sh200Q
 #define sh200q  Sh200Q
 #else
